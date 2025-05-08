@@ -3,46 +3,56 @@
 import { useEffect, useState } from 'react';
 
 export default function PWAInstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
-  const [showInstall, setShowInstall] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setShowInstall(true);
+      setShowPopup(true);
     };
 
     window.addEventListener('beforeinstallprompt', handler);
-
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
-    // @ts-ignore
     deferredPrompt.prompt();
-    // @ts-ignore
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-      console.log('User accepted the install prompt');
+    const result = await deferredPrompt.userChoice;
+    if (result.outcome === 'accepted') {
+      console.log('App installed');
     } else {
-      console.log('User dismissed the install prompt');
+      console.log('Install dismissed');
     }
-    setShowInstall(false);
+    setShowPopup(false);
   };
 
-  if (!showInstall) return null;
+  if (!showPopup) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 bg-white border shadow-lg p-4 rounded-xl">
-      <p className="mb-2">Install HealthBridge for a better experience!</p>
-      <button
-        onClick={handleInstallClick}
-        className="bg-blue-600 text-white px-4 py-2 rounded"
-      >
-        Install
-      </button>
+    <div className="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 border border-gray-300 z-50">
+      <img
+    src="/icons/icon.png"
+    alt="HealthBridge Icon"
+    className="w-12 h-12 rounded-full shadow border border-gray-300"
+  />
+      <p className="mb-2 font-medium text-gray-700">Install HealthBridge?</p>
+      <div className="flex justify-end gap-2">
+        <button
+          onClick={() => setShowPopup(false)}
+          className="px-3 py-1 text-gray-500 hover:text-gray-800"
+        >
+          Dismiss
+        </button>
+        <button
+          onClick={handleInstallClick}
+          className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+        >
+          Install
+        </button>
+      </div>
     </div>
   );
 }
