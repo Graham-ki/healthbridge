@@ -14,13 +14,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-export const metadata = {
-  title: 'HealthBridge',
-  description: 'Your digital gateway to better health.',
-  themeColor: '#1D4ED8',
-  icons: {
-    icon: '/icons/icon.png',
-    shortcut: '/icons/icon.png',
-    apple: '/icons/icon.png',
-  },
-};
+
