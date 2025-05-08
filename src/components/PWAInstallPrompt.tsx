@@ -60,33 +60,47 @@ export default function PWAInstallPrompt() {
       }`}
     >
       <div 
-        className="bg-white/90 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 p-3 flex items-start justify-between gap-3"
+        className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 flex items-center justify-between gap-3"
         role="alert"
         aria-labelledby="pwa-install-heading"
       >
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-            </svg>
-            <h3 id="pwa-install-heading" className="text-sm font-medium text-gray-800">Add to Home Screen</h3>
+        <div className="flex items-center gap-2">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-4 w-4 text-blue-500 shrink-0" 
+            viewBox="0 0 20 20" 
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+          </svg>
+          <div>
+            <h3 id="pwa-install-heading" className="text-sm font-medium text-gray-800 leading-tight">
+              Add HealthBridge to Home Screen
+            </h3>
+            <p className="text-xs text-gray-600 mt-0.5">Tap "Install" to add the app</p>
           </div>
-          <p className="text-xs text-gray-600 mt-1 pl-7">Install HealthBridge for a better experience</p>
         </div>
         
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <button
             onClick={handleInstallClick}
-            className="text-xs font-medium text-blue-600 hover:text-blue-800 px-2 py-1 rounded hover:bg-blue-50 transition"
+            className="text-xs font-medium text-blue-600 hover:text-blue-800 px-2 py-1 rounded hover:bg-blue-50 transition-colors"
           >
             Install
           </button>
           <button
             onClick={closePopup}
-            className="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition"
+            className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-100 transition-colors"
             aria-label="Dismiss"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-3.5 w-3.5" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+              aria-hidden="true"
+            >
               <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </button>
