@@ -2,21 +2,20 @@
 
 import { useEffect, useState } from 'react';
 
-type BeforeInstallPromptEvent = Event & {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
-};
-
 export default function PWAInstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    const handler = (e: Event) => {
-      const event = e as BeforeInstallPromptEvent;
+    const handler = (e: any) => {
       e.preventDefault();
-      setDeferredPrompt(event);
-      setShowPopup(true);
+      setDeferredPrompt(e);
+
+      // Show prompt only if not already dismissed in session
+      const dismissed = sessionStorage.getItem('pwa-install-dismissed');
+      if (!dismissed) {
+        setShowPopup(true);
+      }
     };
 
     window.addEventListener('beforeinstallprompt', handler);
@@ -27,13 +26,20 @@ export default function PWAInstallPrompt() {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
     const result = await deferredPrompt.userChoice;
-    setDeferredPrompt(null);
-    setShowPopup(false);
+
     if (result.outcome === 'accepted') {
-      console.log('App installed');
+      console.log('✅ App installed');
     } else {
-      console.log('Install dismissed');
+      console.log('❌ Install dismissed');
     }
+
+    setShowPopup(false);
+    sessionStorage.setItem('pwa-install-dismissed', 'true');
+  };
+
+  const handleDismiss = () => {
+    setShowPopup(false);
+    sessionStorage.setItem('pwa-install-dismissed', 'true');
   };
 
   if (!showPopup) return null;
@@ -44,7 +50,7 @@ export default function PWAInstallPrompt() {
         <img
           src="/icons/icon.png"
           alt="App Icon"
-          className="w-10 h-10 rounded-full border border-gray-300 shadow-sm"
+          className="w-10 h-10 rounded-lg border border-gray-300"
         />
         <div>
           <p className="text-sm font-semibold text-gray-800">Install HealthBridge</p>
@@ -53,7 +59,7 @@ export default function PWAInstallPrompt() {
       </div>
       <div className="flex justify-end gap-2">
         <button
-          onClick={() => setShowPopup(false)}
+          onClick={handleDismiss}
           className="text-sm text-gray-500 hover:text-gray-700 px-3 py-1 rounded"
         >
           Maybe Later
