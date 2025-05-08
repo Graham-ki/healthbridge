@@ -4,6 +4,7 @@ import ProtectedRoute from '@/components/protectedRoute';
 import Link from 'next/link';
 import { supabase } from '@/utils/client'; // Adjust the import path as necessary
 import { useRouter } from 'next/navigation';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 export default function HomePage() {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function HomePage() {
   return (
     <ProtectedRoute>
       <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
+      <PWAInstallPrompt />
         <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
         <p className="text-gray-600">Welcome back to HealthBridge!</p>
 
