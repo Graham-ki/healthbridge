@@ -23,7 +23,7 @@ export default function HomePage() {
         
         <div className="relative z-10">
           <Header />
-          <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
             <div className="px-4 sm:px-0 mx-auto text-center max-w-2xl">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to HealthBridge</h1>
               <p className="text-gray-700 mb-8 text-lg">Your comprehensive health management dashboard</p>
