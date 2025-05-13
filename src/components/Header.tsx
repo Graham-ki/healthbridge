@@ -38,7 +38,7 @@ export default function Header() {
               height={40}
               className="rounded-lg"
             />
-            <span className="ml-2 text-xl font-bold text-blue-600">HealthBridge</span>
+            <span className="hidden md:block ml-2 text-xl font-bold text-blue-600">HealthBridge</span>
           </Link>
 
           {/* Search Bar */}
@@ -72,9 +72,9 @@ export default function Header() {
 
           {/* Shopping Cart */}
           <Link href="/cart" className="relative p-2 mr-4 rounded-full hover:bg-gray-100 transition-colors">
-            <FaShoppingCart className="h-6 w-6 text-gray-600" />
+            <FaShoppingCart className="h-6 w-6 text-pink-500 hover:text-pink-600" />
             {cartItemsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-pink-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 {cartItemsCount}
               </span>
             )}
@@ -87,7 +87,7 @@ export default function Header() {
               className="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
               <svg
-                className="h-6 w-6 text-gray-600"
+                className="h-6 w-6 text-pink-500 hover:text-pink-600"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
