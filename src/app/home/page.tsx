@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="relative z-10">
           <Header />
           <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div className="px-4 sm:px-0">
+            <div className="px-4 sm:px-0 mx-auto text-center max-w-2xl">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to HealthBridge</h1>
               <p className="text-gray-700 mb-8 text-lg">Your comprehensive health management dashboard</p>
             </div>
@@ -34,7 +34,7 @@ export default function HomePage() {
             
             {/* Daily Health Tracking */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Daily Health Tracking</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">Daily Health Tracking</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/vitals"
@@ -69,7 +69,7 @@ export default function HomePage() {
             
             {/* Medical Management */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Medical Management</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">Medical Management</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/medications"
@@ -104,7 +104,7 @@ export default function HomePage() {
             
             {/* Appointments & Records */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Appointments & Records</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">Appointments & Records</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/appointments"
@@ -139,7 +139,7 @@ export default function HomePage() {
             
             {/* Wellness & Lifestyle */}
             <div className="mt-10 px-4 sm:px-0 mb-10">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Wellness & Lifestyle</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">Wellness & Lifestyle</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/nutrition"
