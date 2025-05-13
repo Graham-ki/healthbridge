@@ -55,48 +55,50 @@ export default function PWAInstallPrompt() {
 
   return (
     <div 
-      className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4 transition-all duration-200 ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+      className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4 transition-all duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
       <div 
-        className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 flex items-center justify-between gap-3"
+        className="bg-gradient-to-r from-white to-blue-50 rounded-xl shadow-lg border border-blue-100 p-4 flex items-center justify-between gap-4"
         role="alert"
         aria-labelledby="pwa-install-heading"
       >
-        <div className="flex items-center gap-2">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-4 w-4 text-blue-500 shrink-0" 
-            viewBox="0 0 20 20" 
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-          </svg>
+        <div className="flex items-center gap-3">
+          <div className="bg-blue-100 rounded-full p-2">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-5 w-5 text-blue-600" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+            </svg>
+          </div>
           <div>
-            <h3 id="pwa-install-heading" className="text-sm font-medium text-gray-800 leading-tight">
-              Add HealthBridge to Home Screen
+            <h3 id="pwa-install-heading" className="text-base font-semibold text-gray-900 leading-tight">
+              Install HealthBridge
             </h3>
-            <p className="text-xs text-gray-600 mt-0.5">Tap "Install" to add the app</p>
+            <p className="text-sm text-gray-600 mt-0.5">Get quick access on your device</p>
           </div>
         </div>
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button
             onClick={handleInstallClick}
-            className="text-xs font-medium text-blue-600 hover:text-blue-800 px-2 py-1 rounded hover:bg-blue-50 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
           >
             Install
           </button>
           <button
             onClick={closePopup}
-            className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-100 transition-colors"
+            className="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
             aria-label="Dismiss"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              className="h-3.5 w-3.5" 
+              className="h-5 w-5" 
               viewBox="0 0 20 20" 
               fill="currentColor"
               aria-hidden="true"
