@@ -1,0 +1,11 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="medical-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <!-- Cross Symbol -->
+      <path d="M25 15h10v10h10v10H35v10H25V35H15V25h10V15z" fill="#2563EB" fill-opacity="0.03"/>
+      <!-- Heartbeat Line -->
+      <path d="M0 30h15l5-10 5 20 5-10h15" stroke="#2563EB" stroke-opacity="0.05" stroke-width="1" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#medical-pattern)"/>
+</svg>

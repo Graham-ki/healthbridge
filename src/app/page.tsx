@@ -58,18 +58,20 @@ export default function WelcomePage() {
         <meta name="theme-color" content="#2563EB" />
       </head>
       
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex flex-col items-center justify-center p-4 sm:p-6">
-        <div className="max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 relative flex flex-col items-center justify-center p-4 sm:p-6">
+        <div className="absolute inset-0 z-0" style={{ backgroundImage: 'url(/medical-pattern.jpg)', backgroundSize: 'cover', opacity: 0.6 }} />
+        <div className="max-w-6xl w-full bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden z-10">
           {/* Hero Section */}
-          <div className="relative bg-gradient-to-r from-blue-600 to-indigo-700 p-8 md:p-12 text-white">
+          <div className="relative bg-gradient-to-r from-blue-600 to-indigo-700 p-8 md:p-12 text-white shadow-lg">
             <div className="max-w-3xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="backdrop-blur-sm bg-white/5 p-6 rounded-lg"
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Welcome to HealthBridge</h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-light mb-8 opacity-90">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">Welcome to HealthBridge</h1>
+                <p className="text-lg sm:text-xl md:text-2xl font-light mb-8 text-white drop-shadow">
                   Your digital gateway to comprehensive healthcare solutions
                 </p>
               </motion.div>
@@ -110,7 +112,7 @@ export default function WelcomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 + 0.6, duration: 0.5 }}
-                    className={`${feature.color} ${feature.borderColor} border p-6 rounded-xl hover:shadow-md transition-all`}
+                    className={`${feature.color} ${feature.borderColor} border-2 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all backdrop-blur-sm`}
                   >
                     <div className="flex items-start gap-4">
                       <span className="text-3xl">{feature.icon}</span>
@@ -124,7 +126,7 @@ export default function WelcomePage() {
               </div>
               
               {/* Feature Spotlight */}
-              <div className={`${features[currentFeature].color} ${features[currentFeature].borderColor} border rounded-xl p-8 mb-10 text-center`}>
+              <div className={`${features[currentFeature].color} ${features[currentFeature].borderColor} border-2 rounded-xl p-8 mb-10 text-center shadow-lg backdrop-blur-sm`}>
                 <motion.div
                   key={currentFeature}
                   initial={{ opacity: 0 }}
@@ -147,7 +149,7 @@ export default function WelcomePage() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-10 border border-blue-100"
+                className="bg-gradient-to-r from-blue-50/90 to-indigo-50/90 backdrop-blur-sm rounded-xl p-8 mb-10 border-2 border-blue-200 shadow-lg"
               >
                 <div className="max-w-3xl mx-auto">
                   <div className="flex items-center mb-4">
