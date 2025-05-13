@@ -9,8 +9,7 @@ import {
   FaHeartbeat, FaCalendarAlt, FaPills, FaFileMedicalAlt,
   FaUserMd, FaWeight, FaWater, FaRunning, FaClinicMedical,
   FaAllergies, FaSyringe, FaFirstAid, FaPrescriptionBottleAlt,
-  FaUtensils, FaBed, FaBrain, FaTooth, FaVial, FaMicroscope,
-  FaProcedures, FaHospital, FaNotesMedical, FaClipboardList
+  FaChartLine, FaUtensils, FaBed, FaBrain, FaTooth
 } from 'react-icons/fa';
 
 export default function HomePage() {
@@ -22,11 +21,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[url('/images/medical-pattern.svg')] bg-repeat bg-center"></div>
         </div>
         
-        {/* Fixed Header */}
-        <Header />
-        
-        {/* Main content with padding for fixed header */}
-        <div className="pt-16"> {/* Matches header height */}
+        <div className="relative z-10">
+          <Header />
           <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div className="px-4 sm:px-0">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to HealthBridge</h1>
@@ -36,9 +32,9 @@ export default function HomePage() {
             <NavigationMenu />
             <PWAInstallPrompt />
             
-            {/* Health Monitoring Section */}
+            {/* Daily Health Tracking */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Health Monitoring</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4">Daily Health Tracking</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/vitals"
@@ -51,7 +47,7 @@ export default function HomePage() {
                   href="/weight"
                   icon={<FaWeight className="text-blue-500 text-2xl" />}
                   title="Weight Tracker"
-                  description="Log and analyze weight trends"
+                  description="Log and analyze weight trends over time"
                   color="blue"
                 />
                 <HealthCardLink 
@@ -71,9 +67,9 @@ export default function HomePage() {
               </div>
             </div>
             
-            {/* Medical Records Section */}
+            {/* Medical Management */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Medical Records</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4">Medical Management</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/medications"
@@ -90,25 +86,25 @@ export default function HomePage() {
                   color="amber"
                 />
                 <HealthCardLink 
-                  href="/lab-results"
-                  icon={<FaVial className="text-emerald-500 text-2xl" />}
-                  title="Lab Results"
-                  description="View test results and reports"
+                  href="/immunizations"
+                  icon={<FaSyringe className="text-emerald-500 text-2xl" />}
+                  title="Immunizations"
+                  description="Vaccination records and schedules"
                   color="emerald"
                 />
                 <HealthCardLink 
-                  href="/medical-history"
-                  icon={<FaFileMedicalAlt className="text-indigo-500 text-2xl" />}
-                  title="Medical History"
-                  description="Complete health records"
+                  href="/conditions"
+                  icon={<FaClinicMedical className="text-indigo-500 text-2xl" />}
+                  title="Health Conditions"
+                  description="Manage chronic conditions"
                   color="indigo"
                 />
               </div>
             </div>
             
-            {/* Appointments & Care Section */}
+            {/* Appointments & Records */}
             <div className="mt-10 px-4 sm:px-0">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Appointments & Care</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4">Appointments & Records</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/appointments"
@@ -125,15 +121,15 @@ export default function HomePage() {
                   color="pink"
                 />
                 <HealthCardLink 
-                  href="/procedures"
-                  icon={<FaProcedures className="text-orange-500 text-2xl" />}
-                  title="Procedures"
-                  description="Surgical history and notes"
+                  href="/medical-records"
+                  icon={<FaFileMedicalAlt className="text-orange-500 text-2xl" />}
+                  title="Medical Records"
+                  description="Test results and documents"
                   color="orange"
                 />
                 <HealthCardLink 
                   href="/insurance"
-                  icon={<FaHospital className="text-rose-500 text-2xl" />}
+                  icon={<FaFirstAid className="text-rose-500 text-2xl" />}
                   title="Insurance"
                   description="Policy details and claims"
                   color="rose"
@@ -141,14 +137,14 @@ export default function HomePage() {
               </div>
             </div>
             
-            {/* Wellness & Prevention Section */}
+            {/* Wellness & Lifestyle */}
             <div className="mt-10 px-4 sm:px-0 mb-10">
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Wellness & Prevention</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-4">Wellness & Lifestyle</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <HealthCardLink 
                   href="/nutrition"
                   icon={<FaUtensils className="text-lime-500 text-2xl" />}
-                  title="Nutrition"
+                  title="Nutrition Log"
                   description="Track meals and nutrients"
                   color="lime"
                 />
@@ -167,10 +163,10 @@ export default function HomePage() {
                   color="sky"
                 />
                 <HealthCardLink 
-                  href="/immunizations"
-                  icon={<FaSyringe className="text-fuchsia-500 text-2xl" />}
-                  title="Immunizations"
-                  description="Vaccination records"
+                  href="/dental"
+                  icon={<FaTooth className="text-fuchsia-500 text-2xl" />}
+                  title="Dental Health"
+                  description="Oral care tracking"
                   color="fuchsia"
                 />
               </div>
