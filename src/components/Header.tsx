@@ -5,11 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/utils/client';
+import { FaShoppingCart } from 'react-icons/fa';
 
 export default function Header() {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  // Temporary cart items count - replace with your actual cart state
+  const [cartItemsCount, setCartItemsCount] = useState(3);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -66,6 +69,16 @@ export default function Header() {
               </button>
             </div>
           </form>
+
+          {/* Shopping Cart */}
+          <Link href="/cart" className="relative p-2 mr-4 rounded-full hover:bg-gray-100 transition-colors">
+            <FaShoppingCart className="h-6 w-6 text-gray-600" />
+            {cartItemsCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                {cartItemsCount}
+              </span>
+            )}
+          </Link>
 
           {/* User Menu */}
           <div className="relative">
