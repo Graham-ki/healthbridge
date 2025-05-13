@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import React from 'react';
 
 interface MenuCard {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
   href: string;
 }
 
